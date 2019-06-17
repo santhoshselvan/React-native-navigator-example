@@ -12,7 +12,7 @@ export default class HomeView extends React.Component {
 
     static navigationOptions = {
         // header: null
-        title: "Home"
+        title: "Home 3"
     }
 
     constructor(props) {
@@ -36,12 +36,12 @@ export default class HomeView extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>
-                    Home View
+                    Home View 3
                 </Text>
                 <TouchableOpacity onPress={() => {
                     this.props.navigation.navigate("HomeDetailView")
                 }}>
-                    <Text>go to Home Detail</Text>
+                    <Text>go to Home 6 Detail</Text>
                 </TouchableOpacity>
             </View>
         );

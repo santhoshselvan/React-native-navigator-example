@@ -10,6 +10,7 @@ import { getDiscoverViewStack } from './src/utils/navigator/DiscoverStack'
 import { getMoreViewStack } from './src/utils/navigator/MoreStack'
 import { getBottomTabbar } from './src/utils/navigator/BottomTabNavigator'
 import { getDrawerNavigator } from './src/utils/navigator/DrawerNavigator'
+import * as codePush from "react-native-code-push";
 
 //创建抽屉视图
 const DrawerNavigator = getDrawerNavigator()
@@ -37,9 +38,13 @@ const switchNavigator = createSwitchNavigator(
   }
 )
 
+let codePushOptions = {
+  checkFrequency: codePush.CheckFrequency.ON_APP_RESUME,
+  installMode: codePush.InstallMode.ON_NEXT_RESUME
+}
 
 //创建App
-const AppContainer = createAppContainer(switchNavigator);
+const AppContainer = codePush(codePushOptions)( createAppContainer(switchNavigator));
 
 
 export default class App extends Component {
